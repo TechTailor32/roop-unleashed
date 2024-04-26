@@ -55,8 +55,8 @@ def faceswap_tab():
                             mask_erosion = gr.Slider(1.0, 3.0, value=1.0, label="Erosion Iterations", step=1.00, interactive=True)
                             mask_blur = gr.Slider(10.0, 50.0, value=20.0, label="Blur size", step=1.00, interactive=True)
                             bt_toggle_masking = gr.Button("Toggle manual masking", variant='secondary', size='sm')
-                            selected_mask_engine = gr.Dropdown(["None", "Clip2Seg", "DFL XSeg"], value="None", label="Face masking engine")
-                            clip_text = gr.Textbox(label="List of objects to mask and restore back on fake face", value="cup,hands,hair,banana", interactive=False)
+                            selected_mask_engine = gr.Dropdown(["None", "Clip2Seg", "DFL XSeg"], value="Clip2Seg", label="Face masking engine")
+                            clip_text = gr.Textbox(label="List of objects to mask and restore back on fake face", value="penis,tongue,fingers,hand,arm,leg,eye glasses,cum,liquid", interactive=False)
                             bt_preview_mask = gr.Button("👥 Show Mask Preview", variant='secondary')
                         bt_remove_selected_input_face = gr.Button("❌ Remove selected", size='sm')
                         bt_clear_input_faces = gr.Button("💥 Clear all", variant='stop', size='sm')
@@ -99,15 +99,15 @@ def faceswap_tab():
             with gr.Column(scale=1):
                 selected_face_detection = gr.Dropdown(["First found", "All female", "All male", "All faces", "Selected face"], value="First found", label="Specify face selection for swapping")
             with gr.Column(scale=1):
-                ui.globals.ui_selected_enhancer = gr.Dropdown(["None", "Codeformer", "DMDNet", "GFPGAN", "GPEN", "Restoreformer++"], value="None", label="Select post-processing")
+                ui.globals.ui_selected_enhancer = gr.Dropdown(["None", "Codeformer", "DMDNet", "GFPGAN", "GPEN", "Restoreformer++"], value="GFPGAN", label="Select post-processing")
 
         with gr.Row(variant='panel'):
             with gr.Column(scale=1):
-                max_face_distance = gr.Slider(0.01, 1.0, value=0.65, label="Max Face Similarity Threshold", info="0.0 = identical 1.0 = no similarity")
+                max_face_distance = gr.Slider(0.01, 1.0, value=0.766, label="Max Face Similarity Threshold", info="0.0 = identical 1.0 = no similarity")
             with gr.Column(scale=1):
                 num_swap_steps = gr.Slider(1, 5, value=1, step=1.0, label="Number of swapping steps", info="More steps can increase likeness")
             with gr.Column(scale=2):
-                ui.globals.ui_blend_ratio = gr.Slider(0.0, 1.0, value=0.65, label="Original/Enhanced image blend ratio", info="Only used with active post-processing")
+                ui.globals.ui_blend_ratio = gr.Slider(0.0, 1.0, value=0.85, label="Original/Enhanced image blend ratio", info="Only used with active post-processing")
 
 
         with gr.Row(variant='panel'):

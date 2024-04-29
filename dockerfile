@@ -25,7 +25,7 @@ WORKDIR ${WORKINGFOLDER}
 RUN apt-get update && apt-get install -y git 
 
 #  clone repository
-RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
+RUN git clone ${GIT_REPO} .
 RUN mv /${WORKINGFOLDER}/${CONFIGFILE} /${WORKINGFOLDER}/config.yaml
 
 # Install any needed dependencies and packages specified in requirements.txt

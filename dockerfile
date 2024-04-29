@@ -18,17 +18,17 @@ ENV WORKINGFOLDER /roop-unleashed
 # Set the working directory in the container
 WORKDIR ${WORKINGFOLDER}
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    libgl1-mesa-glx \
-    ffmpeg 
+# Install system dependencies for git
+RUN apt-get update && apt-get install -y git 
 
 #  clone repository
 RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
 RUN mv /${WORKINGFOLDER}/config_colab.yaml /${WORKINGFOLDER}/config.yaml
 
-# Install any needed packages specified in requirements.txt
+# Install any needed dependencies and packages specified in requirements.txt
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    ffmpeg 
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run appname when the container launches - change the run.py to your own app.py

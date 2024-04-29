@@ -6,7 +6,5 @@
 services:
   web:
     build: .
-    volumes:
-      - "C:/Users/Brian/development/GitHub/TechTailor32/roop-unleashed:/roop-unleashed"
     ports:
       - "4000:80"

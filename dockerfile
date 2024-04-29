@@ -16,7 +16,7 @@ ENV NAME ROOP
 ENV WORKINGFOLDER /roop-unleashed
 ##  3 choices:  colab (changes to run on Kaggle), cuda (if you have nvidia GPU), cpu (if you have cpu only)
 ##  config_colab.yaml or config_cuda.yaml or config_cpu.yaml
-ENV CONFIGFILE config_cpu.yaml   
+ENV CONFIGFILE config_cuda.yaml   
 
 # Set the working directory in the container
 WORKDIR ${WORKINGFOLDER}

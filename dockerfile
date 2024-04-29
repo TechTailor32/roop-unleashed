@@ -14,6 +14,9 @@ FROM python:3.10.13
 ENV GIT_REPO https://github.com/TechTailor32/roop-unleashed.git
 ENV NAME ROOP
 ENV WORKINGFOLDER /roop-unleashed
+##  3 choices:  colab (changes to run on Kaggle), cuda (if you have nvidia GPU), cpu (if you have cpu only)
+##  config_colab.yaml or config_cuda.yaml or config_cpu.yaml
+ENV CONFIGFILE config_cpu.yaml   
 
 # Set the working directory in the container
 WORKDIR ${WORKINGFOLDER}
@@ -23,7 +26,7 @@ RUN apt-get update && apt-get install -y git
 
 #  clone repository
 RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
-RUN mv /${WORKINGFOLDER}/config_colab.yaml /${WORKINGFOLDER}/config.yaml
+RUN mv /${WORKINGFOLDER}/${CONFIGFILE} /${WORKINGFOLDER}/config.yaml
 
 # Install any needed dependencies and packages specified in requirements.txt
 RUN apt-get update && apt-get install -y \

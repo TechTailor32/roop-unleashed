@@ -31,4 +31,4 @@ RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run appname when the container launches
-CMD ["python", "${APPNAME}"]
+CMD ["python", ${APPNAME}]

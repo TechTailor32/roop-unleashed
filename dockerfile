@@ -21,10 +21,12 @@ WORKDIR ${WORKINGFOLDER}
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
-    libgl1-mesa-glx  ## Add this line to install the OpenGL libraries
+    libgl1-mesa-glx \
+    ffmpeg 
 
 #  clone repository
 RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
+RUN mv /${WORKINGFOLDER}/config_colab.yaml /${WORKINGFOLDER}/config.yaml
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt

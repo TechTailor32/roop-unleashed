@@ -1,0 +1,12 @@
+############################################
+#  Get Container up and running
+#     docker-compose up
+############################################
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/roop-unleashed
+    ports:
+      - "4000:80"

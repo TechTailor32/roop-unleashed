@@ -4,6 +4,7 @@
 #
 # Build from GitHub:
 #    docker build --build-arg GIT_REPO=https://github.com/TechTailor32/roop-unleashed.git -t roop-unleashed .
+ENV GIT_REPO https://github.com/TechTailor32/roop-unleashed.git
 #
 #
 # Set port to 4000
@@ -20,7 +21,7 @@ WORKDIR /roop-unleashed
 # Copy the current directory contents into the container at /app
 # COPY . /roop-unleashed
 #  clone repository instead
-ARG GIT_REPO
+
 RUN apt-get update && apt-get install -y git
 RUN git clone ${GIT_REPO} /roop-unleashed
 

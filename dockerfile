@@ -14,7 +14,6 @@ FROM python:3.10.13
 ENV GIT_REPO https://github.com/TechTailor32/roop-unleashed.git
 ENV NAME ROOP
 ENV WORKINGFOLDER /roop-unleashed
-ENV APPNAME run.py
 
 # Set the working directory in the container
 WORKDIR ${WORKINGFOLDER}
@@ -30,5 +29,5 @@ RUN git clone ${GIT_REPO} /${WORKINGFOLDER}
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run appname when the container launches
-CMD ["python", ${APPNAME}]
+# Run appname when the container launches - change the run.py to your own app.py
+CMD ["python", "run.py"]

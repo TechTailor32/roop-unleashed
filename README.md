@@ -4,6 +4,7 @@
 
 
 Uncensored Deepfakes for images and videos without training and an easy-to-use GUI.
+Note: this version contains default values for masking, similarity and enhanced ratios, and GFPGAN preselected.  The masking contains a variety of terms and the other defaults set to the cleanest output when working with adult video content.
 
 
 ![Screen](https://github.com/C0untFloyd/roop-unleashed/assets/131583554/6ee6860d-efbe-4337-8c62-a67598863637)
